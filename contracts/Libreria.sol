@@ -176,6 +176,8 @@ contract LibreriaData {
 
 
         // fin inicialización datos.
+
+        
     }
 
 }
@@ -224,6 +226,7 @@ contract Libreria is LibreriaData {
 
 // ============================= START FUNCTIONS ============================= //
 
+
     // Funcion para activar o desactivar el contrato. Solo disponible para el owner del contrato.
     function switchOnOff() public {
         if (msg.sender == owner) {
@@ -237,7 +240,6 @@ contract Libreria is LibreriaData {
         books[_id].owner.transfer(books[_id].purchasePrice);
         books[_id].owner = msg.sender;
         bookCounters.incSellsCounter(counters);
-        bookCounters.decAvailableBooks(counters);
 
     }
 
@@ -259,7 +261,6 @@ contract Libreria is LibreriaData {
         books[_id].owner.transfer(books[_id].lendingPrice);
         books[_id].temporalOwner = msg.sender;
         bookCounters.incLendingsCounter(counters);
-        bookCounters.decAvailableBooks(counters);
 
     }
 
@@ -279,21 +280,10 @@ contract Libreria is LibreriaData {
     // Funcion para efectuar la devolución de un libro. Se requiere el id del libro.
     function returnBook(uint256 _id) public payable stopInEmergency{
         books[_id].temporalOwner = books[_id].owner;
-        bookCounters.incAvailableBooks(counters);
 
     }
 
-    //Funcion para ver el contador de libros disponibles de la libreria.
-    function verLibrosDisponibles( )
-    public
-    view
-    returns (uint256)
-    {
 
-        uint256 librosDisponibles = bookCounters.viewAvailableBooks(counters);
-        return librosDisponibles;
-
-    }
 
     function getBookIndex() public view returns (uint256[] memory){
         return bookIndex;

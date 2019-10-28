@@ -32,10 +32,10 @@ export default class Store extends React.Component {
   componentDidMount() {
   
   const verVentasDataKey = this.props.drizzle.contracts.Libreria.methods.verVentas.cacheCall();
-  const verPrestamosDataKey = this.props.drizzle.contracts.Libreria.methods.verPrestamos.cacheCall();
-  const verLibrosDispDataKey = this.props.drizzle.contracts.Libreria.methods.verLibrosDisponibles.cacheCall();
 
-  this.setState({ verVentasDataKey, verPrestamosDataKey, verLibrosDispDataKey });
+  const verPrestamosDataKey = this.props.drizzle.contracts.Libreria.methods.verPrestamos.cacheCall();
+
+  this.setState({verVentasDataKey,verPrestamosDataKey,verLibrosDispDataKey});
 
   }
 
@@ -56,18 +56,6 @@ export default class Store extends React.Component {
     // Si el objeto ya tiene el valor value (quiere decir que ya se obtuvo del contrato), guardo solo ese valor
     return storeDrizzleObject && storeDrizzleObject.value;
   };
-
-  getLibrosDisponibles = () => {
-    const { Libreria } = this.props.drizzleState.contracts;
-    // Guardo el objeto con el address del store
-    const storeDrizzleObject = Libreria.verLibrosDisponibles[this.state.verLibrosDispDataKey];
-
-    // Si el objeto ya tiene el valor value (quiere decir que ya se obtuvo del contrato), guardo solo ese valor
-    return storeDrizzleObject && storeDrizzleObject.value;
-  };
-
-
-
 
 
 
@@ -111,7 +99,6 @@ export default class Store extends React.Component {
         <h2>Store</h2>
         <p>Cantidad de Ventas: {this.getVentas()}</p>
         <p>Cantidad de Prestamos: {this.getPrestamos()}</p>
-        <p>Cantidad de Libros Dispobibles: {this.getLibrosDisponibles()}</p>
         <table>
           <thead>
             <tr>
