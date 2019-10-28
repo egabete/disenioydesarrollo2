@@ -29,11 +29,7 @@ A. Implemtnación Librería
 1. Se implementó una librería que implemente 3 contadores: uno de ventas (sellsCounter), uno de prestamos (lendingsCounter) y uno de libros disponibles (availableBooks).
 1. Una vez la librería estuvo funcionando (primero lo implementé en Remix para asegurarme que funcionara), tuve que configurar en el archivo `2_libreria_migration.js`, la librería para que primero se despliegue la librería, luego se linke la librería en el contrato y que luego se despliegue el contrato. Finalmente el archivo de configuración quedo asi:
 
-<<<<<<< HEAD
-@@@
-=======
 ```
->>>>>>> 627644300409e81eea98b09bff64947ba04b575c
 const bookCounters = artifacts.require("../libraries/bookCounters");
 const Libreria = artifacts.require("Libreria");
 
@@ -42,8 +38,4 @@ module.exports = function(deployer) {
   deployer.link(bookCounters, Libreria);
   deployer.deploy(Libreria);
 };
-<<<<<<< HEAD
-@@@
-=======
 ```
->>>>>>> 627644300409e81eea98b09bff64947ba04b575c
