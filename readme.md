@@ -22,3 +22,20 @@ B. Guía de Instalación
 1. Ir a la carpeta `cliente` y ejecutar el comando `npm start` para iniciar un servidor web local y poder acceder a la aplicación.
 1. Abrir el browser con Metamask instalado y configurado con las 2 cuentas y abrir la URL normalmente es `localhost:3000` para acceder a la aplicación.
 
+### DESCRIPCIÓN EJERCICIOS
+
+A. Implemtnación Librería
+1. La librería creada se puede encontrar en `/libraries/bookCounters.sol`
+1. Se implementó una librería que implemente 3 contadores: uno de ventas (sellsCounter), uno de prestamos (lendingsCounter) y uno de libros disponibles (availableBooks).
+1. Una vez la librería estuvo funcionando (primero lo implementé en Remix para asegurarme que funcionara), tuve que configurar en el archivo `2_libreria_migration.js`, la librería para que primero se despliegue la librería, luego se linke la librería en el contrato y que luego se despliegue el contrato. Finalmente el archivo de configuración quedo asi:
+
+@@@@
+const bookCounters = artifacts.require("../libraries/bookCounters");
+const Libreria = artifacts.require("Libreria");
+
+module.exports = function(deployer) {
+  deployer.deploy(bookCounters);
+  deployer.link(bookCounters, Libreria);
+  deployer.deploy(Libreria);
+};
+@@@@@
