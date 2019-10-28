@@ -26,7 +26,7 @@ B. Guía de Instalación
 
 A. Implemtnación Librería
 1. La librería creada se puede encontrar en `/libraries/bookCounters.sol`
-1. Se implementó una librería que implemente 3 contadores: uno de ventas (sellsCounter), uno de prestamos (lendingsCounter) y uno de libros disponibles (availableBooks).
+1. Se implementó una librería que implemente 2 contadores: uno de ventas (sellsCounter), uno de prestamos (lendingsCounter)
 1. Una vez la librería estuvo funcionando (primero lo implementé en Remix para asegurarme que funcionara), tuve que configurar en el archivo `2_libreria_migration.js`, la librería para que primero se despliegue la librería, luego se linke la librería en el contrato y que luego se despliegue el contrato. Finalmente el archivo de configuración quedo asi:
 
 ```
@@ -39,3 +39,6 @@ module.exports = function(deployer) {
   deployer.deploy(Libreria);
 };
 ```
+B. Implementación de Tests
+1. Se han implementado algunos tests. Los mismos se encuentran alojados en la carpeta `/tests/libreria.js`
+1. Se ha efectuado la corrida de los tests con el comando `truffle test` en el cual salieron exitosos los 6 tests que fueron implementados.

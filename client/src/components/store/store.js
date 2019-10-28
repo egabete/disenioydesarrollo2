@@ -35,7 +35,7 @@ export default class Store extends React.Component {
 
   const verPrestamosDataKey = this.props.drizzle.contracts.Libreria.methods.verPrestamos.cacheCall();
 
-  this.setState({verVentasDataKey,verPrestamosDataKey,verLibrosDispDataKey});
+  this.setState({verVentasDataKey,verPrestamosDataKey});
 
   }
 
