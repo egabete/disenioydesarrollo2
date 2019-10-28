@@ -1,4 +1,10 @@
 
-# DISEÑO Y DESARROLLO 2
-## PEC 2
-### ESTEBAN ABETE
+# DISEÑO Y DESARROLLO II
+## PEC 2 - ESTEBAN ABETE
+
+
+
+#### INDICE
+
+1. Presentación de la actividad.
+2. Guía de Instalación
