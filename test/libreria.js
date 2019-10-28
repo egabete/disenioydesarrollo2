@@ -9,14 +9,8 @@ contract("Libreria", accounts => {
     libreria = await Libreria.deployed();
   });
 
-  it("Check store value when deployed", async () => {
-    const expectedValue = store;
 
-    const value = await libreria.store.call();
-    assert.equal(value, expectedValue, "When deployed value must be store!");
-  });
-
-  it("buyBook() with correct purchase price and check owner", async () => {
+  it("buyBook() with correct purchase price and check owner change", async () => {
     const bookIndex = await libreria.getBookIndex.call();
 
     const position = 1;
@@ -105,7 +99,7 @@ contract("Libreria", accounts => {
     assert.equal(previousTemporalOwner, currentTemporalOwner, "Temporal Owner should not change");
   });
 
-  it("returnBook() ", async () => {
+  it("Check Owner of the books after loan happends and after retrun from loan happends ", async () => {
     const bookIndex = await libreria.getBookIndex.call();
 
     const position = 5;
