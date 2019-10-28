@@ -40,10 +40,8 @@ module.exports = function(deployer) {
 };
 ```
 B. Implementación de Tests
-1. Se han implementado algunos tests. Los mismos se encuentran alojados en la carpeta `/tests/libreria.js`
-1. Se ha efectuado la corrida de los tests con el comando `truffle test` en el cual salieron exitosos los 6 tests que fueron implementados.
-1. Fatla documentación de los tests para que se entienda mejor lo que se hace en cada uno.
-1. 
+1. Los tests implementados se encuentran alojados en la carpeta `/tests/libreria.js`
+1. Se ha efectuado la corrida de los tests con el comando `truffle test` en el cual salieron exitosos los 5 tests que fueron implementados. 
 
 C. Posible Patron de Actualización del Contrato.
 1.
